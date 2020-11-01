@@ -7,7 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Display from '../MainDisplay/index.js';
 
-const currencies = [
+const gradeChoices = [
     {
         value: 'KinderGarten',
         label: 'KinderGarten',
@@ -62,7 +62,37 @@ const currencies = [
     }
 
 ];
+const seasonChoices = [
+    {
+        value: 'Spring',
+        label: 'Spring',
+    },
+    {
+        value: 'Summer',
+        label: 'Summer',
+    },
+    {
+        value: 'Autumn',
+        label: 'Autumn',
+    },
+    {
+        value: 'Winter',
+        label: 'Winter',
+    }
 
+];
+const other = [
+    {
+        value: 'Festival',
+        label: 'Festival',
+    },
+    {
+        value: 'Author',
+        label: 'Author',
+    }
+    
+
+];
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -84,10 +114,10 @@ const useStyles = makeStyles((theme) => ({
 const Search = () => {
 
     const classes = useStyles();
-    const [gradeSelection, setGrade] = React.useState('');
+    const [gradeSelection, setChoice] = React.useState('');
 
     const handleChange = (event) => {
-        setGrade(event.target.value);
+        setChoice(event.target.value);
 
     };
 
@@ -96,25 +126,55 @@ const Search = () => {
 
     return (
         <div className={classes.root}>
-          
-            <Grid container spacing={3} style={{width:'90%', margin:'auto'}}>
+
+            <Grid container spacing={3} style={{ width: '90%', margin: 'auto' }}>
                 <Grid item xs={12}>
-                    <Paper className={classes.paper}>  <Typography variant="h2">
-                Search for Main lesson suggestions 
+                    <Paper className={classes.paper}>  <Typography variant="h3">
+                        Search for Main lesson suggestions
             </Typography></Paper>
                 </Grid>
-                <Grid item xs={12} sm={4} style={{width:'35v'}}>
+                <Grid item xs={12} sm={4} style={{ width: '35v' }}>
                     <Paper className={classes.paper}>  <form noValidate autoComplete="off">
 
                         <TextField
                             id="standard-select-currency"
                             select
-                            label="Select"
+                            label="Grade"
                             value={gradeSelection}
                             onChange={handleChange}
                             helperText="Please select your Grade"
                         >
-                            {currencies.map((option) => (
+                            {gradeChoices.map((option) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+
+                        <TextField
+                            id="standard-select-currency"
+                            select
+                            label="Season"
+                            value={gradeSelection}
+                            onChange={handleChange}
+                            helperText="Choose by Season"
+                        >
+                            {seasonChoices.map((option) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            ))}
+                        </TextField>
+
+                        <TextField
+                            id="standard-select-currency"
+                            select
+                            label="Other"
+                            value={gradeSelection}
+                            onChange={handleChange}
+                            helperText="Select your option"
+                        >
+                            {other.map((option) => (
                                 <MenuItem key={option.value} value={option.value}>
                                     {option.label}
                                 </MenuItem>
@@ -123,10 +183,11 @@ const Search = () => {
 
                     </form>
                     </Paper>
+
                 </Grid>
                 <Grid item xs={12} sm={8}>
-                    <Paper className={classes.paper}> 
-                    <Display grade={gradeSelection}/>
+                    <Paper className={classes.paper}>
+                        <Display grade={gradeSelection} />
                     </Paper>
                 </Grid>
             </Grid>
