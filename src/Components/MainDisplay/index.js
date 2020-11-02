@@ -1,19 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
+import {connect} from 'react-redux';
+import {deleteFromSaved, addToSaved, getSaved} from "../../Actions/savedActivities";
 
-const Display = (props)=>{
-
+class Display extends Component {
+    render(){
+  console.log(this.props.savedActivities, "in main display state value ")
+      
 
     return (
         <div>
-        <h1> Display Results</h1>
+        <h1 > Display Results</h1>
    
-        <h1>{props.grade}</h1>
+        <h1> {this.props.savedActivities}</h1>
 
         </div>
     )
+
+    }
+}
+
+const mapStatetoProps = (state) =>{
+
+    return {
+        savedActivities: state.store.globalSaved
+    }
 
 
 }
 
 
-export default Display;
+export default connect (mapStatetoProps, {getSaved, deleteFromSaved, addToSaved}) (Display);

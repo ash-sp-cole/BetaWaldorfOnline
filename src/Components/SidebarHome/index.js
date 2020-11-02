@@ -6,6 +6,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Display from '../MainDisplay/index.js';
+import {connect} from 'react-redux';
+import {deleteFromSaved, addToSaved, getSaved} from "../../Actions/savedActivities";
+
 
 const gradeChoices = [
     {
@@ -111,14 +114,17 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Search = () => {
+const Search = ({savedActivities, dispatchAddToSaved}) => {
 
     const classes = useStyles();
-    const [gradeSelection, setChoice] = React.useState('');
+    const [gradeSelection, setChoice] = React.useState('other');
 
     const handleChange = (event) => {
         setChoice(event.target.value);
-
+        let choice = event.target.value;
+        console.log(choice, "function")
+        dispatchAddToSaved(choice)
+        
     };
 
 
@@ -187,7 +193,7 @@ const Search = () => {
                 </Grid>
                 <Grid item xs={12} sm={8}>
                     <Paper className={classes.paper}>
-                        <Display grade={gradeSelection} />
+                        <Display/>
                     </Paper>
                 </Grid>
             </Grid>
@@ -197,4 +203,21 @@ const Search = () => {
     )
 
 }
-export default Search;
+
+const mapStatetoProps = (state) =>{
+
+    return {
+        savedActivities: state.store.userChoice
+    }
+
+
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      dispatchAddToSaved:   (e) => dispatch(addToSaved(e))
+    }
+  }
+
+
+export default connect (mapStatetoProps, mapDispatchToProps ) (Search);
