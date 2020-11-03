@@ -117,12 +117,12 @@ const useStyles = makeStyles((theme) => ({
 const Search = ({savedActivities, dispatchAddToSaved}) => {
 
     const classes = useStyles();
-    const [gradeSelection, setChoice] = React.useState('other');
+  
 
     const handleChange = (event) => {
-        setChoice(event.target.value);
+        
         let choice = event.target.value;
-        console.log(choice, "function")
+      
         dispatchAddToSaved(choice)
         
     };
@@ -146,12 +146,12 @@ const Search = ({savedActivities, dispatchAddToSaved}) => {
                             id="standard-select-currency"
                             select
                             label="Grade"
-                            value={gradeSelection}
+                            value=""
                             onChange={handleChange}
                             helperText="Please select your Grade"
                         >
                             {gradeChoices.map((option) => (
-                                <MenuItem key={option.value} value={option.value}>
+                              <MenuItem key={option.value} value={option.value}>
                                     {option.label}
                                 </MenuItem>
                             ))}
@@ -161,12 +161,12 @@ const Search = ({savedActivities, dispatchAddToSaved}) => {
                             id="standard-select-currency"
                             select
                             label="Season"
-                            value={gradeSelection}
+                                value=""
                             onChange={handleChange}
                             helperText="Choose by Season"
                         >
                             {seasonChoices.map((option) => (
-                                <MenuItem key={option.value} value={option.value}>
+                                 <MenuItem key={option.value} value={option.value}>
                                     {option.label}
                                 </MenuItem>
                             ))}
@@ -176,7 +176,7 @@ const Search = ({savedActivities, dispatchAddToSaved}) => {
                             id="standard-select-currency"
                             select
                             label="Other"
-                            value={gradeSelection}
+                            value=""
                             onChange={handleChange}
                             helperText="Select your option"
                         >

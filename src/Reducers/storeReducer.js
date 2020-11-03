@@ -1,41 +1,41 @@
-import {ADD_TO_SAVED} from "../Actions/savedActivities.js";
+import { ADD_TO_SAVED } from "../Actions/savedActivities.js";
 
 const initialState = {
-    globalSaved:""
+    globalSaved: ""
 }
 
 
-export const storeReducer = (state = initialState, action) =>{
-    console.log("save reducer pinged", action.payload)
-                switch(action.type) {
+export const storeReducer = (state = initialState, action) => {
+
+    switch (action.type) {
 
 
-                    // case GET_SAVED:
-                    //     return{
-                    //         ...state,
-                    //         globalSaved:action.payload
-                    //     }
-                     
-
-                    case ADD_TO_SAVED:
-                     
-                        return{
-                            ...state,
-                            globalSaved:  action.payload,
-                        }
+        // case GET_SAVED:
+        //     return{
+        //         ...state,
+        //         globalSaved:action.payload
+        //     }
 
 
-                        
+        case ADD_TO_SAVED:
 
-                    // case DELETE_FROM_SAVED:
-                    //     return{
-                    //         ...state,
-                    //         globalSaved: state.globalSaved - action.payload,
-                    //     }
+            return {
+                ...state,
+                globalSaved: action.payload,
+            }
 
-                    default: return state;
 
-                }
+
+
+        // case DELETE_FROM_SAVED:
+        //     return{
+        //         ...state,
+        //         globalSaved: state.globalSaved - action.payload,
+        //     }
+
+        default: return state;
+
+    }
 
 
 

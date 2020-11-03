@@ -14,15 +14,15 @@ export const getSaved = (data) => {
 }
 
 export const addToSaved = (itemQuantity) => {
-    
-  console.log("test action", itemQuantity)
-    return{
-    type: ADD_TO_SAVED,
-    payload: itemQuantity
-    
+
+
+    return {
+        type: ADD_TO_SAVED,
+        payload: itemQuantity
+
     }
-    
-    }
+
+}
 
 export const deleteFromSaved = (data) => {
 
