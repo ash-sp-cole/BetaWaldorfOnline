@@ -30,7 +30,14 @@ router.post('/:id', async (req, res)=>{
  
     const newMainLesson = new mainLesson({
         grade: req.body.grade,
-      
+        lessonType: req.body.lessonType,
+        images: req.body.images,
+        songs: req.body.songs,
+        stories: req.body.stories,
+        videos: req.body.videos,
+        poems: req.body.poems,
+        verses: req.body.verses,
+        lessonPlans: req.body.lessonPlans,
     })
     try {
         const newlesson = await newMainLesson.save()

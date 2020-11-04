@@ -6,8 +6,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Display from '../MainDisplay/index.js';
-import {connect} from 'react-redux';
-import {deleteFromSaved, addToSaved, getSaved} from "../../Actions/savedActivities";
+import { connect } from 'react-redux';
+import { deleteFromSaved, addToSaved, getSaved } from "../../Actions/savedActivities";
+import Button from "@material-ui/core/Button";
+import Axios from "axios";
 
 
 const gradeChoices = [
@@ -93,7 +95,7 @@ const other = [
         value: 'Author',
         label: 'Author',
     }
-    
+
 
 ];
 
@@ -114,19 +116,32 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Search = ({savedActivities, dispatchAddToSaved}) => {
+const Search = ({ savedActivities, dispatchAddToSaved }) => {
 
     const classes = useStyles();
-  
+
 
     const handleChange = (event) => {
-        
+
         let choice = event.target.value;
-      
+
         dispatchAddToSaved(choice)
-        
+
     };
 
+const handleApiCall = () =>{
+
+    Axios.get("http://localhost:3001/mainlesson")
+        .then(function(response){
+            let data = response.data
+            dispatchAddToSaved(response)
+        })
+        .catch(function(error){
+            console.log(error + "error for api call in sidebar.js")
+        })
+
+
+}
 
 
 
@@ -151,7 +166,7 @@ const Search = ({savedActivities, dispatchAddToSaved}) => {
                             helperText="Please select your Grade"
                         >
                             {gradeChoices.map((option) => (
-                              <MenuItem key={option.value} value={option.value}>
+                                <MenuItem key={option.value} value={option.value}>
                                     {option.label}
                                 </MenuItem>
                             ))}
@@ -161,12 +176,12 @@ const Search = ({savedActivities, dispatchAddToSaved}) => {
                             id="standard-select-currency"
                             select
                             label="Season"
-                                value=""
+                            value=""
                             onChange={handleChange}
                             helperText="Choose by Season"
                         >
                             {seasonChoices.map((option) => (
-                                 <MenuItem key={option.value} value={option.value}>
+                                <MenuItem key={option.value} value={option.value}>
                                     {option.label}
                                 </MenuItem>
                             ))}
@@ -186,14 +201,16 @@ const Search = ({savedActivities, dispatchAddToSaved}) => {
                                 </MenuItem>
                             ))}
                         </TextField>
-
+                        <Button variant="contained" color="secondary" onClick={handleApiCall}>
+                            CAll API
+                            </Button>
                     </form>
                     </Paper>
 
                 </Grid>
                 <Grid item xs={12} sm={8}>
                     <Paper className={classes.paper}>
-                        <Display/>
+                        <Display />
                     </Paper>
                 </Grid>
             </Grid>
@@ -204,7 +221,7 @@ const Search = ({savedActivities, dispatchAddToSaved}) => {
 
 }
 
-const mapStatetoProps = (state) =>{
+const mapStatetoProps = (state) => {
 
     return {
         savedActivities: state.store.userChoice
@@ -215,9 +232,9 @@ const mapStatetoProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      dispatchAddToSaved:   (e) => dispatch(addToSaved(e))
+        dispatchAddToSaved: (e) => dispatch(addToSaved(e))
     }
-  }
+}
 
 
-export default connect (mapStatetoProps, mapDispatchToProps ) (Search);
+export default connect(mapStatetoProps, mapDispatchToProps)(Search);

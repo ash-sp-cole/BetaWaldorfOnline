@@ -1,7 +1,7 @@
 import { ADD_TO_SAVED } from "../Actions/savedActivities.js";
 
 const initialState = {
-    globalSaved: ""
+    globalSaved: []
 }
 
 

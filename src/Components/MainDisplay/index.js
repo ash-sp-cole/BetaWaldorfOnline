@@ -5,13 +5,13 @@ import { deleteFromSaved, addToSaved, getSaved } from "../../Actions/savedActivi
 class Display extends Component {
     render() {
 
-
+console.log( " STATE ACCESS OF API CALL IN DISPLAY " + this.props.savedActivities)
 
         return (
             <div>
                 <h1 > Display Results</h1>
 
-                <h1> {this.props.savedActivities}</h1>
+                <h1> </h1>
 
             </div>
         )

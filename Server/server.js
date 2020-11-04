@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 require('dotenv').config();
 App.use(bodyParser.json());
 const mainLessonRoutes = require("./Routes/mainLessonRoute.js");
-
+App.use(cors());
 
 const Port = 3001 || process.env;
 
