@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
@@ -20,6 +21,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
+ 
     
   },
   media: {
@@ -53,22 +55,21 @@ export default function CardProp(props) {
 
   return (
     <Card className={classes.root}
-   
+    style={{margin:'auto'}}
     >
+        <CardActionArea
+        onClick={handleExpandClick}
+        >
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
+       style={{marginLeft:'7%'}}
         action={
           <IconButton aria-label="settings">
             <MoreVertIcon />
           </IconButton>
         }
-        titleTypographyProps={{variant:'h4' }}
+        titleTypographyProps={{variant:'h6' }}
         title={props.grade}
-        subheaderTypographyProps={{variant:'h4' }}
+        subheaderTypographyProps={{variant:'h8' }}
         subheader={props.lessonType}
       />
       
@@ -83,22 +84,25 @@ export default function CardProp(props) {
          {props.lessonPlans}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+      <CardActions disableSpacing style={{margin:'auto'}}>
+        <IconButton aria-label="add to favorites"
+        style={{marginRight:'-5%'}}
+        >
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+       
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
           })}
+       
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
         >
-            Activities
+                    <Typography   variant="body1" color="textSecondary" component="p">
+         more info
+        </Typography>
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
@@ -118,6 +122,7 @@ export default function CardProp(props) {
          {props.verses}   </Typography>
         </CardContent>
       </Collapse>
+      </CardActionArea>
     </Card>
   );
 }

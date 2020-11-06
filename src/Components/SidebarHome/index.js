@@ -146,11 +146,11 @@ const Search = ({dispatchAddToSaved,dispatchCallApi }) => {
             <Grid container spacing={3} style={{ width: '90%', margin: 'auto' }}>
                 <Grid item xs={12}>
                     <Paper className={classes.paper}>  <Typography variant="h3">
-                        Search for Main lesson suggestions
+                        The Middle Space
             </Typography></Paper>
                 </Grid>
-                <Grid item xs={12} sm={4} style={{ width: '35v' }}>
-                    <Paper className={classes.paper}>  <form noValidate autoComplete="off">
+                <Grid item xs={12} sm={6} md={5} lg={4}>
+                    <Paper className={classes.paper} elevation={14}>  <form noValidate autoComplete="off">
 
                         <TextField
                             id="standard-select-currency"
@@ -206,8 +206,8 @@ const Search = ({dispatchAddToSaved,dispatchCallApi }) => {
                     </Paper>
 
                 </Grid>
-                <Grid item xs={12} sm={8}>
-                    <Paper className={classes.paper}>
+                <Grid item xs={12} sm={6} lg={8}>
+                    <Paper className={classes.paper} elevation={14}>
                         <Display />
                     </Paper>
                 </Grid>
