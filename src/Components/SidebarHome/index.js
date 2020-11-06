@@ -7,7 +7,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Display from '../MainDisplay/index.js';
 import { connect } from 'react-redux';
-import { deleteFromSaved, addToSaved, getSaved } from "../../Actions/savedActivities";
+import { deleteFromSaved, addToSaved, getSaved, callApi } from "../../Actions/savedActivities";
 import Button from "@material-ui/core/Button";
 import Axios from "axios";
 
@@ -116,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Search = ({ savedActivities, dispatchAddToSaved }) => {
+const Search = ({dispatchAddToSaved,dispatchCallApi }) => {
 
     const classes = useStyles();
 
@@ -127,22 +127,17 @@ const Search = ({ savedActivities, dispatchAddToSaved }) => {
 
         dispatchAddToSaved(choice)
 
+        
     };
 
-const handleApiCall = () =>{
+ 
+  
+//   const handleApiCall = async () =>{
 
-    Axios.get("http://localhost:3001/mainlesson")
-        .then(function(response){
-            let data = response.data
-            dispatchAddToSaved(response)
-        })
-        .catch(function(error){
-            console.log(error + "error for api call in sidebar.js")
-        })
-
-
-}
-
+           
+// dispatchCallApi()
+//       }
+    
 
 
     return (
@@ -201,8 +196,11 @@ const handleApiCall = () =>{
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <Button variant="contained" color="secondary" onClick={handleApiCall}>
-                            CAll API
+                        <Button variant="contained" color="secondary"
+                            onClick={()=>{
+                                dispatchAddToSaved("")}}
+                        >
+                            Clear
                             </Button>
                     </form>
                     </Paper>
@@ -232,7 +230,8 @@ const mapStatetoProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        dispatchAddToSaved: (e) => dispatch(addToSaved(e))
+        dispatchAddToSaved: (e) => dispatch(addToSaved(e)),
+        dispatchCallApi: (choice) => dispatch(callApi(choice))
     }
 }
 

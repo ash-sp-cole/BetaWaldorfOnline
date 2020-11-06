@@ -1,7 +1,8 @@
-import { ADD_TO_SAVED } from "../Actions/savedActivities.js";
+import { ADD_TO_SAVED, API_CALL } from "../Actions/savedActivities.js";
 
 const initialState = {
-    globalSaved: []
+    globalSaved: "",
+    apiMainLessonQuery: []
 }
 
 
@@ -10,15 +11,16 @@ export const storeReducer = (state = initialState, action) => {
     switch (action.type) {
 
 
-        // case GET_SAVED:
-        //     return{
-        //         ...state,
-        //         globalSaved:action.payload
-        //     }
+        case API_CALL:
+            console.log("reducer call api " )
+            
+                return{ ...state, 
+                    apiMainLessonQuery: action.payload};
+            
 
 
         case ADD_TO_SAVED:
-
+           
             return {
                 ...state,
                 globalSaved: action.payload,
