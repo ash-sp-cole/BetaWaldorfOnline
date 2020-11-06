@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core";
+
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -9,7 +9,11 @@ import Display from '../MainDisplay/index.js';
 import { connect } from 'react-redux';
 import { deleteFromSaved, addToSaved, getSaved, callApi } from "../../Actions/savedActivities";
 import Button from "@material-ui/core/Button";
-import Axios from "axios";
+import Header from "../Header";
+import { Divider } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 
 const gradeChoices = [
@@ -116,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Search = ({dispatchAddToSaved,dispatchCallApi }) => {
+const Search = ({ dispatchAddToSaved}) => {
 
     const classes = useStyles();
 
@@ -127,31 +131,31 @@ const Search = ({dispatchAddToSaved,dispatchCallApi }) => {
 
         dispatchAddToSaved(choice)
 
-        
+
     };
 
- 
-  
-//   const handleApiCall = async () =>{
 
-           
-// dispatchCallApi()
-//       }
-    
+
+    //   const handleApiCall = async () =>{
+
+
+    // dispatchCallApi()
+    //       }
+
 
 
     return (
         <div className={classes.root}>
 
-            <Grid container spacing={3} style={{ width: '90%', margin: 'auto' }}>
+            <Grid container spacing={3} style={{ width: '85%', margin: 'auto' }}>
                 <Grid item xs={12}>
-                    <Paper className={classes.paper}>  <Typography variant="h3">
-                        The Middle Space
-            </Typography></Paper>
+                    <Header />
                 </Grid>
-                <Grid item xs={12} sm={6} md={5} lg={4}>
+                <Grid item xs={12} sm={6} md={5} lg={4} >
                     <Paper className={classes.paper} elevation={14}>  <form noValidate autoComplete="off">
-
+                    <Typography variant="h4"  style={{marginBottom:'25px'}}>
+                        Selection : 
+        </Typography>
                         <TextField
                             id="standard-select-currency"
                             select
@@ -196,21 +200,46 @@ const Search = ({dispatchAddToSaved,dispatchCallApi }) => {
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <Button variant="contained" color="secondary"
-                            onClick={()=>{
-                                dispatchAddToSaved("")}}
-                        >
-                            Clear
-                            </Button>
+                        <Divider />
+
+
+
+                        <Grid container spacing={12} style={{ margin: 'auto'}}>
+                            <Grid item xs={12} sm={12}  >
+                                <IconButton aria-label="delete"
+                                    onClick={() => {
+                                        dispatchAddToSaved("")
+                                    }}
+                                >
+                                    <Button
+                                        variant="contained"
+                                        color="default"
+
+                                        startIcon={<HighlightOffIcon />}
+                                    >
+                                        Clear Search
+ </Button>
+                                </IconButton>
+                            </Grid>
+
+
+
+                            <Grid item xs={4} sm={4}>
+
+                            </Grid>
+                        </Grid>
                     </form>
                     </Paper>
 
                 </Grid>
                 <Grid item xs={12} sm={6} lg={8}>
-                    <Paper className={classes.paper} elevation={14}>
+                    <Paper className={classes.paper} elevation={14} >
                         <Display />
                     </Paper>
                 </Grid>
+
+
+
             </Grid>
 
 
