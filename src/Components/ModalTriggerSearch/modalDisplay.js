@@ -3,13 +3,12 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { deleteFromSaved, addToSaved, getSaved } from "../../Actions/savedActivities";
 import Axios from "axios";
-import CardProp from "./CardDisplayProp";
-import "./styles.css";
+import CardProp from "./propDisplay";
 import SearchIcon from '@material-ui/icons/Search';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 
-class Display extends Component {
+class ModalDisplay extends Component {
 
     state = {
         responseArr: [],
@@ -20,9 +19,9 @@ class Display extends Component {
     render() {
 
 
-        console.log(this.state.responseArr)
+        console.log(this.props.apiCalledStore + "modal")
         const handleApiCall = () => {
-            if (this.props.savedActivities === "") {
+            if (this.props.savedUsedChoice === "") {
                 alert("please select a search option")
             }
             else {
@@ -47,39 +46,32 @@ class Display extends Component {
         if (this.state.apiCalled === false) {
             return (
                 <div>
-                    <Typography variant="h4"  color='textPrimary' >
-                        Welcome to The Middle Space
-        </Typography>
-                    <Typography variant="h6" component="p" style={{marginBottom:'25px'}}>
-                        A Resource for Educators and Parents.
-                       <br>
-                        </br>
-                       To view main lesson suggestion or content help , please use our interactive search feature.
-        </Typography>
-        <Typography variant="h4" color='textPrimary'  style={{marginBottom:'25px'}}>
-                        Selection : {this.props.savedActivities}
-        </Typography>
+                    
                     <Divider />
                   
+                    <Typography variant="h3">
+                       
+                        {this.props.savedUsedChoice}
+                    </Typography>
+                
                     <IconButton aria-label="delete"
-                        onClick={handleApiCall}
-                    >
-
-                        <Button
-                            variant="contained"
-                            color="default"
-
-                            startIcon={<SearchIcon />}
-                        >
-                            Search {this.props.savedActivities}
- </Button>
-                    </IconButton>
-
+                                  
+                                  >
+                                      <Button
+                                          variant="contained"
+                                          color="primary"
+                                          onClick={handleApiCall}
+                                          startIcon={<SearchIcon />}
+                                      >
+                                          Search
+   </Button>
+                                  </IconButton>
+           
                 </div>
             )
         }
 
-
+           
 
         else if (this.state.apiCalled === true) {
 
@@ -114,7 +106,7 @@ class Display extends Component {
                         {this.state.responseArr.map((data, index) => {
                             return (
 
-                                <Grid item xs={12} sm={6} md={6} lg={4} key={index} style={{ margin: 'auto' }}>
+                                <Grid item xs={12} sm={6} md={6} lg={6} key={index} style={{ margin: 'auto' }}>
                                     <Paper elevation={14} style={{ margin: 'auto' }}>
                                         <CardProp
                                             style={{
@@ -155,12 +147,13 @@ class Display extends Component {
 const mapStatetoProps = (state) => {
 
     return {
-        savedActivities: state.store.globalSaved,
-        apiStoredData: state.store.apiMainLessonQuery
+       
+        savedUsedChoice: state.store.modalSearchChoice,
+        apiCalledStore : state.store.apiBool
     }
 
 
 }
 
 
-export default connect(mapStatetoProps, { getSaved, deleteFromSaved, addToSaved })(Display);
+export default connect(mapStatetoProps, { getSaved, deleteFromSaved, addToSaved })(ModalDisplay);
