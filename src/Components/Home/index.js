@@ -16,6 +16,12 @@ import Typography from "@material-ui/core/Typography";
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import ModalTriggerSearch from "../ModalTriggerSearch/index.js";
 import TermsModal from "../Disclaimer/index.js";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import searchLogo from "../../Assets/smallSearch.JPG";
 
 
 const gradeChoices = [
@@ -100,7 +106,8 @@ const other = [
     {
         value: 'Author',
         label: 'Author',
-    }
+    },
+
 
 
 ];
@@ -117,6 +124,10 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
+    },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
     },
 }));
 
@@ -153,13 +164,11 @@ const Home = ({ dispatchAddToSaved }) => {
                 <Grid item xs={12}>
                     <Header />
                 </Grid>
-                <Grid item xs={12} sm={6} md={5} lg={4} >
-                    <Paper className={classes.paper} elevation={14}>  <form noValidate autoComplete="off">
-                        <Typography variant="h4" style={{ marginBottom: '25px' }}>
-                            Quick Search
-                        <ModalTriggerSearch />
+                <Grid item xs={12} sm={6} md={5} lg={4} style={{ margin: 'auto', borderRadius:'25px'  }} >
+                    <Paper className={classes.paper} elevation={22}>  <form noValidate autoComplete="off">
+                        <Typography variant="h4" style={{ marginBottom: '15px' }}>
 
-
+                            <ModalTriggerSearch/>
 
 
                         </Typography>
@@ -177,7 +186,7 @@ const Home = ({ dispatchAddToSaved }) => {
                 </Grid>
                 <Grid item xs={12} sm={6} lg={8}>
                     <Paper className={classes.paper} elevation={14} >
-
+test
                     </Paper>
                 </Grid>
 

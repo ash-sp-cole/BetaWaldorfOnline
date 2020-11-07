@@ -14,6 +14,36 @@ import SearchIcon from '@material-ui/icons/Search';
 import { connect } from 'react-redux';
 import { apiBool } from "../../Actions/savedActivities";
 import Typography from "@material-ui/core/Typography";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import searchLogo from "../../Assets/smallSearch.JPG";
+import { makeStyles } from '@material-ui/core/styles';
+import { Divider } from "@material-ui/core";
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+      '& .MuiTextField-root': {
+          margin: theme.spacing(1),
+          width: '25ch',
+          flexGrow: 1,
+      },
+  },
+  paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+  },
+  media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+  },
+}));
+
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -31,21 +61,51 @@ const ModalTriggerSearch = ({ dispatchApiBool }) => {
   const handleApi = () => {
     dispatchApiBool(true)
   }
-
+  const classes = useStyles();
   return (
     <div>
-      <IconButton aria-label="delete"
-            onClick={handleClickOpen}
-          >
-            <Button
-              variant="contained"
-              color="secondary"
+      
 
-              startIcon={<SearchIcon/>}
-            >
-             Quick Search
- </Button>
-          </IconButton>
+      <Card className={classes.root} style={{ margin: 'auto' }} elevation={14}>
+                                <CardActionArea
+                                 onClick={handleClickOpen}
+                                >
+                                    <CardMedia
+                                        className={classes.media}
+                                        image={searchLogo}
+                                        title="search logo"
+                                        style={{ margin: 'auto'}}
+                                    />
+                                    <CardContent style={{ margin: 'auto' }}>
+                                        <Typography gutterBottom variant="h5" component="h2">
+                                        <IconButton aria-label="delete"
+                                           onClick={handleClickOpen}
+                                          >
+                                        <Button
+                                            variant="contained"
+                                                   color="secondary"
+                                                     style={{ borderRadius:'15px'}}
+                                                   startIcon={<SearchIcon/>}
+                                                             >
+                                                        Quick Search
+                                                      </Button>
+                                          </IconButton>
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                            To view main lesson suggestion or content help , please use our interactive search feature.
+                                         </Typography>
+                                        <Divider style={{marginTop:'25px'}} />
+                                        
+                                    </CardContent>
+                                </CardActionArea>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                            <b>   Please view our terms of service before using our App </b>
+                                        </Typography>
+                                <CardActions style={{ margin: 'auto' }}>
+
+                                </CardActions>
+                            </Card>
+    
       <Dialog
         open={open}
         TransitionComponent={Transition}
@@ -53,6 +113,7 @@ const ModalTriggerSearch = ({ dispatchApiBool }) => {
         onClose={handleClose}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
+        
       >
       
         <DialogContent>
