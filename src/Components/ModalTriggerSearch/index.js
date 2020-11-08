@@ -26,12 +26,14 @@ import { Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-      '& .MuiTextField-root': {
-          margin: theme.spacing(1),
-          width: '25ch',
-          flexGrow: 1,
-      },
-  },
+    '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '25ch',
+        flexGrow: 1,
+    },
+    maxWidth:500,
+    margin:'auto'
+},
   paper: {
       padding: theme.spacing(2),
       textAlign: 'center',

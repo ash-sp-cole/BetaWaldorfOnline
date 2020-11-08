@@ -7,6 +7,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import HomeIcon from '@material-ui/icons/Home';
 import GroupAddIcon from '@material-ui/icons/GroupAdd';
+import { Link } from 'react-router-dom';
 const useStyles = makeStyles({
   root: {
  
@@ -31,9 +32,13 @@ export default function NavigationBar() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Search Resources" icon={<ImageSearchIcon/>} />
-      <BottomNavigationAction className={classes.largeIcon} fontSize="large" icon={<HomeIcon/>} />
-      <BottomNavigationAction label="Job Search" icon={<GroupAddIcon />} />
+      <BottomNavigationAction label="Search Resources"   component={Link}
+       to="/mainsearch" icon={<ImageSearchIcon/>} />
+      <BottomNavigationAction className={classes.largeIcon}    component={Link}
+       to="/" fontSize="large" icon={<HomeIcon/>} />
+      <BottomNavigationAction label="Job Search"
+         component={Link}
+         to="/jobs" icon={<GroupAddIcon />} />
     </BottomNavigation>
   );
 }
