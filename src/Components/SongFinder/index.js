@@ -6,7 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
-import BrushIcon from '@material-ui/icons/Brush';
+import MusicNoteTwoToneIcon from '@material-ui/icons/MusicNoteTwoTone';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
@@ -45,11 +45,11 @@ export default function Blackboard() {
         variant="contained"
         color="secondary"
         className={classes.button}
-        startIcon={<BrushIcon />}
+        startIcon={<MusicNoteTwoToneIcon/>}
         onClick={handleClickOpen}
       >
      <Typography variant="caption" display="block" gutterBottom>
-        Blackboards
+        Song Finder 
         </Typography>
       
       </Button>
