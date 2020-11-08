@@ -10,7 +10,12 @@ import Typography from '@material-ui/core/Typography';
 import bannerLogo from "../../Assets/welcomeLogo.JPG";
 import IconButton from '@material-ui/core/IconButton';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import date from 'date-and-time';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
@@ -18,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
       width: '25ch',
       flexGrow: 1,
     },
-    maxWidth: 500,
+    maxWidth: 650,
     margin: 'auto',
     borderRadius: '25px'
   },
@@ -29,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 0,
+    marginLeft:'-12px',
     paddingTop: '56.25%', // 16:9
   },
 }));
@@ -37,16 +43,35 @@ const useStyles = makeStyles((theme) => ({
 export default function Banner() {
   const classes = useStyles();
 
-  return (
-    <Card className={classes.root}>
-      <CardActionArea>
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const now = new Date();
+   let newDate = date.format(now, 'ddd, MMM DD YYYY'); 
+return(
+  <div>
+    <Card className={classes.root}
+    elevation={10}>
+      <CardActionArea
+        onClick={handleClickOpen}
+      >
         <CardMedia
           className={classes.media}
           image={bannerLogo}
-          title="Contemplative Reptile"
+          title="Quick Guide"
         />
         <CardContent>
-          <Typography gutterBottom variant="h7" component="h2">
+        <Typography gutterBottom variant="h7" component="h1"
+        style={{marginBottom:'5%'}}>
+        {newDate}
+          </Typography>
+          <Typography gutterBottom variant="h9" component="h4">
             Your quick guide for daily resources
           </Typography>
           <IconButton color="secondary" aria-label="add an alarm">
@@ -58,5 +83,27 @@ export default function Banner() {
 
       </CardActions>
     </Card>
+     <Dialog
+     open={open}
+     onClose={handleClose}
+     aria-labelledby="alert-dialog-title"
+     aria-describedby="alert-dialog-description"
+   >
+     <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+     <DialogContent>
+       <DialogContentText id="alert-dialog-description">
+       
+       </DialogContentText>
+     </DialogContent>
+     <DialogActions>
+       <Button onClick={handleClose} color="primary">
+         Disagree
+       </Button>
+       <Button onClick={handleClose} color="primary" autoFocus>
+         Agree
+       </Button>
+     </DialogActions>
+   </Dialog>
+   </div>
   );
 }

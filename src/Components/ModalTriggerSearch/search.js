@@ -147,7 +147,7 @@ const ModalSearchContent = ({dispatchAddToSearchSaved, dispatchApiBool, savedUse
                  
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} >
-                    <Paper className={classes.paper} elevation={14}>  <form noValidate autoComplete="off">
+                    <Paper style={{borderRadius:'25px'}} className={classes.paper} elevation={14}>  <form noValidate autoComplete="off">
                     <Typography variant="h7"  style={{marginBottom:'25px'}}>
                        Use the following boxes to find what your looking for:
         </Typography>
@@ -229,9 +229,7 @@ const ModalSearchContent = ({dispatchAddToSearchSaved, dispatchApiBool, savedUse
 
                 </Grid>
                 <Grid item xs={12} sm={12} lg={12}>
-                    <Paper className={classes.paper} elevation={14} >
-                      
-                    </Paper>
+                  
                 </Grid>
 
 

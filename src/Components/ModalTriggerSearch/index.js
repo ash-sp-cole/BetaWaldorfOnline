@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         width: '25ch',
         flexGrow: 1,
     },
-    maxWidth:500,
+    maxWidth:650,
     margin:'auto'
 },
   paper: {
@@ -116,9 +116,10 @@ const ModalTriggerSearch = ({ dispatchApiBool }) => {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
         
+        
       >
       
-        <DialogContent>
+        <DialogContent >
           <DialogContentText id="alert-dialog-slide-description" >
           <Typography variant="h4"  color='textPrimary' >
                         Welcome to The Middle Space

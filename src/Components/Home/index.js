@@ -61,7 +61,7 @@ const Home = ({ dispatchAddToSaved }) => {
 
 
                 <Grid item xs={12} sm={6} md={6} lg={6} style={{ margin: 'auto', borderRadius: '25px' }} >
-                    <Paper className={classes.paper} elevation={22}>  <form noValidate autoComplete="off">
+                    <form noValidate autoComplete="off">
                         <Typography variant="h4" style={{ marginBottom: '15px' }}>
 
                             <ModalTriggerSearch />
@@ -77,22 +77,21 @@ const Home = ({ dispatchAddToSaved }) => {
                         </Grid>
 
                     </form>
-                    </Paper>
+                  
 
                 </Grid>
 
                 
                 <Grid item xs={12} sm={6} lg={6} style={{margin:'auto'}}>
-                    <Paper className={classes.paper} elevation={14} >
+              
                     <DailyCard/>
-                    
-                    </Paper>
-                    <Paper className={classes.paper} elevation={14} 
+               
+                    {/* <Paper className={classes.paper} elevation={14} 
                         style={{marginTop:'10%'}}
                     >
                     
                     
-                    </Paper>
+                    </Paper> */}
                 </Grid>
 
 
