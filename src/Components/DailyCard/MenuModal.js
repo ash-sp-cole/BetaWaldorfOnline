@@ -8,6 +8,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import MenuPropDisplay from './menuPropDisplay';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
+import BrushIcon from '@material-ui/icons/Brush';
 
 const useStyles = makeStyles({
 
@@ -33,7 +34,7 @@ export default function SimpleBottomNavigation() {
     >
       <BottomNavigationAction label="Songs" icon={<LibraryMusicIcon />} />
       <BottomNavigationAction label="Verse" icon={<MenuBookIcon />} />
-      <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      <BottomNavigationAction label="Activities" icon={<BrushIcon />} />
     </BottomNavigation>
     <MenuPropDisplay menu={value}/>
     </div>

@@ -16,12 +16,13 @@ import verseImage from "../../Assets/slideFour.jpg";
 import SongGrid from "./songs";
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import IconButton from "@material-ui/core/IconButton";
+import ActivityCard from "./activity";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         maxWidth: 550,
-        
-       
+
+
         backgroundColor: theme.palette.background.paper,
     },
     chip: {
@@ -39,7 +40,18 @@ const useStyles = makeStyles((theme) => ({
     media: {
         height: 0,
         paddingTop: '56.25%', // 16:9
-      },
+    },
+    bullet: {
+        display: 'inline-block',
+        margin: '0 2px',
+        transform: 'scale(0.8)',
+    },
+    title: {
+        fontSize: 16,
+    },
+    pos: {
+        marginBottom: 12,
+    },
 }));
 
 const MenuPropDisplay = (props) => {
@@ -47,40 +59,18 @@ const MenuPropDisplay = (props) => {
     const classes = useStyles();
     const now = new Date();
     let newDate = date.format(now, 'ddd, MMM DD YYYY');
-
+    const bull = <span className={classes.bullet}>•</span>;
     if (props.menu === 0) {
         return (
             <div className={classes.root}>
                 <div className={classes.section1}>
-                    <Grid container alignItems="center">
-                        <Grid item xs>
-                        <SongGrid/>
-                            <Typography gutterBottom variant="h6">
-                                Sing along with Joe, Anna and the Family.
-          </Typography>
-                        </Grid>
-                        
-                    </Grid>
-                    <Typography color="textSecondary" variant="body2" style={{marginRight:'5%',marginLeft:'5%', marginBottom:'5%'}}>
-                        The Camphill School presents series: available on YouTube. 
-      </Typography>
-      <div>
-               <IconButton color="secondary" aria-label="add an alarm"  >
-           <YouTubeIcon/>
-          </IconButton>
-     <IconButton color="secondary" style={{marginRight:'15%', marginLeft:'15%'}} aria-label="add an alarm"  >
-           <YouTubeIcon/>
-          </IconButton>
-          <IconButton color="secondary" aria-label="add an alarm"  >
-           <YouTubeIcon/>
-          </IconButton>
-                    </div>
+
+                    <SongGrid />
+
                 </div>
-                <Divider variant="middle" />
-                <div className={classes.section2}>
-               
-                    </div>
-                </div>
+            </div>
+
+
 
         )
 
@@ -103,28 +93,19 @@ const MenuPropDisplay = (props) => {
                         </Grid>
                     </Grid>
                     <Typography color="textSecondary" variant="body2">
-                        Pinstriped cornflower blue cotton blouse takes you on a walk to the park or just down the
+                        Pinstriped cornflower blue cottonrk or just down the
                         hall.
           </Typography>
                 </div>
                 <Divider variant="middle" />
-                <div className={classes.section2}>
-                    <Typography gutterBottom variant="body1">
-                        Select type
-          </Typography>
-                    <div>
-                        <Chip className={classes.chip} label="Extra Soft" />
-                        <Chip className={classes.chip} color="primary" label="Soft" />
-                        <Chip className={classes.chip} label="Medium" />
-                        <Chip className={classes.chip} label="Hard" />
-                    </div>
-                </div>
+                <ActivityCard />
                 <div className={classes.section3}>
                     <Button color="primary">Add to cart</Button>
                 </div>
             </div>
         )
     }
+
 
 
     else {
@@ -137,47 +118,57 @@ const MenuPropDisplay = (props) => {
                             image={verseImage}
                             title="Contemplative Reptile"
                         />
-                         </CardActionArea>
-                        <CardContent>
-                            <Paper elevation={!4}>
-                                <div className={classes.section1}>
+                    </CardActionArea>
+                    <CardContent>
+                        <Paper elevation={!4}>
+                            <div className={classes.section1}>
 
-                                    <Grid container alignItems="center">
-
-                                        <Grid item xs>
-
-                                            <Typography gutterBottom variant="h5" style={{ marginBottom: '7%', marginTop: '-10%' }}>
-                                                Calendar of the Soul for this week
+                                <Grid container alignItems="center">
+                                    <CardContent>
+                                    <Typography variant="h7"  className={classes.title}  style={{marginBottom:'5%' }} component="h2">
+                                            Calendar of the Soul Verse
         </Typography>
-                                        </Grid>
-                                        <Grid item>
-                                            <Typography gutterBottom variant="h6">
+                                        <Typography className={classes.title} color="textSecondary" gutterBottom>
 
-                                            </Typography>
-                                        </Grid>
-                                    </Grid>
+                                            The light from Spirit depths
+                                           
+                                            Strives outward like the sun itself:
+                                                   </Typography>
+                                                   
+                                        <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                                     
+                                                    It becomes life’s will force
+                                                            And shines into the senses’ dullness <br></br>
+                                                            </Typography>
+                                                   
+                                                   <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                            To liberate the forces
+                                                    Whereby creative powers ripen
+                                                <br></br>
+                                                </Typography>
+                                                   
+                                                   <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                                            From soul incentives in the works of Man.
+                                                  </Typography>
+                                        <Typography variant="h7"  className={classes.title}  style={{textAlign:'right'}} component="h2">
+                                            R{bull}Steiner{bull}Week 34
+        </Typography>
+                                        <Typography variant="body2" component="p" style={{marginTop:'5%'}}>
+                                            well meaning and kindly.
+          <br />
+                                            {'"a benevolent smile"'}
+                                        </Typography>
+                                    </CardContent>
+                                </Grid>
 
-                                    <Typography color="textSecondary" variant="body2">
-                                        The light from Spirit depths
-                                        Strives outward like the sun itself:
-                <br></br>
-                It becomes life’s will force
-                And shines into the senses’ dullness <br></br>
-                To liberate the forces
-                Whereby creative powers ripen
-                <br></br>
-                From soul incentives in the works of Man.
-    </Typography>
-                                    <Typography gutterBottom variant="h6" style={{ textAlign: 'right', fontSize: '1em', marginTop: '15px' }}>
-                                        R.Steiner week 34
-</Typography>
-                                </div>
-                                <Divider variant="middle" />
 
-                            </Paper>
-                        </CardContent>
-                   
-                 
+                            </div>
+                            <Divider variant="middle" />
+
+                        </Paper>
+                    </CardContent>
+
+
                 </Card>
 
             </div>
