@@ -111,7 +111,7 @@ const MenuPropDisplay = (props) => {
     else {
         return (
             <div className={classes.root}>
-                <Card className={classes.root}>
+                <Card className={classes.root} style={{borderRadius:'25px'}}>
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
@@ -153,11 +153,7 @@ const MenuPropDisplay = (props) => {
                                         <Typography variant="h7"  className={classes.title}  style={{textAlign:'right'}} component="h2">
                                             R{bull}Steiner{bull}Week 34
         </Typography>
-                                        <Typography variant="body2" component="p" style={{marginTop:'5%'}}>
-                                            well meaning and kindly.
-          <br />
-                                            {'"a benevolent smile"'}
-                                        </Typography>
+                                      
                                     </CardContent>
                                 </Grid>
 
