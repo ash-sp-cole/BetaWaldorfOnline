@@ -16,6 +16,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import date from 'date-and-time';
+import ContentModal from './contentModal';
+import MenuModal from'./MenuModal';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
@@ -89,19 +92,17 @@ return(
      aria-labelledby="alert-dialog-title"
      aria-describedby="alert-dialog-description"
    >
-     <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+     <DialogTitle id="alert-dialog-title">{newDate}</DialogTitle>
      <DialogContent>
        <DialogContentText id="alert-dialog-description">
-       
+      <MenuModal/>
        </DialogContentText>
      </DialogContent>
      <DialogActions>
-       <Button onClick={handleClose} color="primary">
-         Disagree
-       </Button>
-       <Button onClick={handleClose} color="primary" autoFocus>
-         Agree
-       </Button>
+       
+     <IconButton color="secondary" aria-label="add an alarm" style={{width:'100%'}} onClick={handleClose}>
+           <HighlightOffIcon/>
+          </IconButton>
      </DialogActions>
    </Dialog>
    </div>
