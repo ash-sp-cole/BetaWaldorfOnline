@@ -8,7 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import YouTubeIcon from '@material-ui/icons/YouTube';
-import 'react-image-lightbox/style.css';
+
 import FsLightbox from 'fslightbox-react'
 import {Paper, Grid, Divider, IconButton} from "@material-ui/core";
 import { YoutubeSearchedFor } from '@material-ui/icons';
