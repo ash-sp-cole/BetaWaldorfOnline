@@ -1,10 +1,24 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
+
+import FullWidthGrid from './grid';
+
 
 
 class MainSearch extends Component {
+
+
+
     render(){
+
+
+
         return(
-            <div> test Main search</div>
+            <div >
+                
+        <FullWidthGrid/>
+   
+        
+             </div>
         )
     }
 }
