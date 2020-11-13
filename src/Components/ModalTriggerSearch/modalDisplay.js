@@ -6,7 +6,7 @@ import Axios from "axios";
 import CardProp from "./propDisplay";
 import SearchIcon from '@material-ui/icons/Search';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-
+import TestProp from "../MainSearch/testProp";
 
 class ModalDisplay extends Component {
 
@@ -106,18 +106,24 @@ class ModalDisplay extends Component {
                         {this.state.responseArr.map((data, index) => {
                             return (
 
-                                <Grid item xs={12} sm={6} md={6} lg={6} key={index} style={{ margin: 'auto' }}>
+                                <Grid item xs={12} sm={6} md={6} lg={4} key={index} style={{ margin: 'auto' }}>
                                     <Paper elevation={14} style={{ margin: 'auto' }}>
-                                        <CardProp
+                                    <TestProp
                                             style={{
                                                 margin: 'auto'
                                             }}
                                             elevation={16}
+                                            subject={data.subject}
+                                            introduction={data.introduction}
+                                            openingExercises={data.openingExercises}
                                             grade={data.grade}
                                             lessonType={data.lessonType}
                                             imageUrl={data.images}
                                             songs={data.songs}
+                                            songAuthor={data.songAuthor}
                                             verses={data.verses}
+                                            verseAuthor={data.verseAuthor}
+                                            lessonPlans={data.lessonPlans}
                                             poems={data.poems}
                                             stories={data.stories}
                                         />

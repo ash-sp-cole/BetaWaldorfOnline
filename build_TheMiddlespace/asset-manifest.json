@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6d4e5c98.chunk.css",
+    "main.js": "/static/js/main.fcb6be4c.chunk.js",
+    "main.js.map": "/static/js/main.fcb6be4c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ff976e88.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ff976e88.js.map",
+    "static/css/2.2e412779.chunk.css": "/static/css/2.2e412779.chunk.css",
+    "static/js/2.bafc8a3a.chunk.js": "/static/js/2.bafc8a3a.chunk.js",
+    "static/js/2.bafc8a3a.chunk.js.map": "/static/js/2.bafc8a3a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.2e412779.chunk.css.map": "/static/css/2.2e412779.chunk.css.map",
+    "static/css/main.6d4e5c98.chunk.css.map": "/static/css/main.6d4e5c98.chunk.css.map",
+    "static/js/2.bafc8a3a.chunk.js.LICENSE.txt": "/static/js/2.bafc8a3a.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/backgroundLogo.f7019b24.png",
+    "static/media/cardPropBanner.fda018bc.JPG": "/static/media/cardPropBanner.fda018bc.JPG",
+    "static/media/logo1.0d734105.png": "/static/media/logo1.0d734105.png",
+    "static/media/logoMain.84cbabc9.png": "/static/media/logoMain.84cbabc9.png",
+    "static/media/sildeTwo.f651e7b3.jpg": "/static/media/sildeTwo.f651e7b3.jpg",
+    "static/media/slideFive.5dc88406.jpg": "/static/media/slideFive.5dc88406.jpg",
+    "static/media/slideFour.4eb73060.jpg": "/static/media/slideFour.4eb73060.jpg",
+    "static/media/slideOne.978347b9.jpg": "/static/media/slideOne.978347b9.jpg",
+    "static/media/smallSearch.0f5f8b72.JPG": "/static/media/smallSearch.0f5f8b72.JPG",
+    "static/media/welcomeLogo.fd70040b.JPG": "/static/media/welcomeLogo.fd70040b.JPG",
+    "static/media/welcomeLogoBlue.bbfd3381.JPG": "/static/media/welcomeLogoBlue.bbfd3381.JPG"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ff976e88.js",
+    "static/css/2.2e412779.chunk.css",
+    "static/js/2.bafc8a3a.chunk.js",
+    "static/css/main.6d4e5c98.chunk.css",
+    "static/js/main.fcb6be4c.chunk.js"
+  ]
+}

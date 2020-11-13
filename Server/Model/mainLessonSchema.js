@@ -10,6 +10,11 @@ const storeSchema = new mongoose.Schema({
         required: true
 
     },
+    subject: {
+
+        type: String,
+        required: true
+    },
 
     lessonType: {
 
@@ -31,6 +36,13 @@ const storeSchema = new mongoose.Schema({
         required: false
 
     },
+    songAuthor:
+    {
+
+        type: String,
+        required: false
+
+    },
     stories:
     {
 
@@ -38,7 +50,7 @@ const storeSchema = new mongoose.Schema({
         required: false
 
     },
-    videos:
+    openingExercises:
     {
 
         type: String,
@@ -59,11 +71,22 @@ const storeSchema = new mongoose.Schema({
         required: false
 
     },
+    verseAuthor:
+    {
+
+        type: String,
+        required: false
+
+    },
     lessonPlans:
     {
 
         type: String,
         required: true
+    },
+    introduction:{
+        type:String,
+        required: false
     }
 })
 

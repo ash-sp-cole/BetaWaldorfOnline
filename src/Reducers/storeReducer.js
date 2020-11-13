@@ -6,19 +6,18 @@ const initialState = {
     modalSearchChoice:'',
     apiBool: false
 }
-
+const update = (state, mutations) =>
+  Object.assign({}, state, mutations)
 
 export const storeReducer = (state = initialState, action) => {
-
+   
     switch (action.type) {
-
 
         case API_CALL:
             
-            
-                return{ ...state, 
-                    apiMainLessonQuery: action.payload};
-            
+            console.log(state.apiMainLessonQuery + " store redux")
+
+            return state = update(state, { apiMainLessonQuery:  action.payload})
 
 
         case ADD_TO_SAVED:
@@ -36,7 +35,7 @@ export const storeReducer = (state = initialState, action) => {
             }
 
             case API_BOOL:
-                console.log("redu " + action.payload)
+     
                 return {
                     ...state,
                    apiBool: action.payload,

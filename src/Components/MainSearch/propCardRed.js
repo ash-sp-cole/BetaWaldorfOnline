@@ -7,7 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import {Paper,Typography,Grid,Divider} from "@material-ui/core";
-import headerLogo from "../../Assets/welcomeLogoBlue.JPG";
+import headerLogo from "../../Assets/welcomeLogoRed.JPG";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const PropCard = (props) =>{
+const PropCardRed = (props) =>{
     
     const classes = useStyles();
 
@@ -100,7 +100,7 @@ return(
                                 <Grid container alignItems="center">
                                     <CardContent>
                                     <Typography variant="h3" gutterBottom>
-                                        Botany
+                                        Ancient Rome
                                     </Typography>
                                     <Typography variant="h5" gutterBottom>
                                        Fifth Grade
@@ -270,4 +270,4 @@ return(
 }
 
 
-export default PropCard;
+export default PropCardRed;

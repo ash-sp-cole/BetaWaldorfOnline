@@ -5,13 +5,15 @@ import Grid from '@material-ui/core/Grid';
 
 import PropCard from "./propCard";
 import PropCardBlue from './propCardBlue';
+import PropCardRed from './propCardRed';
+import SideBar from './swipeableDrawer';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         margin: 'auto',
         borderRadius:'25px',
-        marginBottom:'15%'
+     
     },
     paper: {
         padding: theme.spacing(2),
@@ -27,6 +29,9 @@ export default function FullWidthGrid() {
     return (
         <div className={classes.root}>
             <Grid container spacing={2}>
+            <Grid item xs={12}>
+                <SideBar/>
+                </Grid>
             <Grid item xs={12} sm={6} md={6} lg={4}>
                     <PropCard />
                 </Grid>
@@ -34,7 +39,7 @@ export default function FullWidthGrid() {
                   <PropCardBlue/>
                 </Grid>
                 <Grid item xs={12} sm={6} md={6} lg={4}>
-                    <PropCard />
+                   <PropCardRed/>
                 </Grid>
               
             </Grid>

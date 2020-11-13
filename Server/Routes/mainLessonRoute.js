@@ -29,14 +29,19 @@ router.get ("/", async (req, res) =>{
 router.post('/:id', async (req, res)=>{
  
     const newMainLesson = new mainLesson({
+        subject:req.body.subject,
         grade: req.body.grade,
         lessonType: req.body.lessonType,
         images: req.body.images,
         songs: req.body.songs,
+        songAuthor: req.body.songAuthor,
+        introduction:req.body.introduction,
+        openingExercises:req.body.openingExercises,
         stories: req.body.stories,
         videos: req.body.videos,
         poems: req.body.poems,
         verses: req.body.verses,
+        verseAuthor:req.body.verseAuthor,
         lessonPlans: req.body.lessonPlans,
     })
     try {

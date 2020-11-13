@@ -16,6 +16,7 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
+import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -62,6 +63,7 @@ const PropCard = (props) =>{
 
 const [expanded1, setExpanded1] = React.useState(false);
 const [expanded2, setExpanded2] = React.useState(false);
+const [expanded3, setExpanded3] = React.useState(false);
 
 const handleExpandClick1 = () => {
     setExpanded1(!expanded1);
@@ -71,6 +73,11 @@ const handleExpandClick1 = () => {
     setExpanded2(!expanded2);
   };
 
+  const handleExpandClick3 = () => {
+    setExpanded3(!expanded3);
+  };
+
+
 
 
 return(
@@ -78,13 +85,14 @@ return(
 <div className={classes.root}>
     <Paper elevation={14} style={{borderRadius:'25px'}}>
                 <Card className={classes.root} style={{borderRadius:'25px'}} >
-                    <CardActionArea>
+                    <CardActionArea onClick={handleExpandClick3}>
                         <CardMedia
                             className={classes.media}
                             image={headerLogo}
                             title="The Middle Space"
                         />
                     </CardActionArea>
+                
                     <CardContent>
                         <Paper elevation={!4}>
                             <div className={classes.section1}>
@@ -95,8 +103,8 @@ return(
                                         Ancient Greece
                                     </Typography>
                                     <Typography variant="h5" gutterBottom>
-        Fifth Grade
-      </Typography>
+                                       Fifth Grade
+                                           </Typography>
                                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                                         Finally, the students explore the life of the ancient Greeks, focusing on Grecian  <b> art,
                                          culture, language,</b> and  <b> movement </b>. 
@@ -118,7 +126,7 @@ return(
                                                   
                                         <Typography variant="h7"  className={classes.title}  style={{textAlign:'right'}} component="h2">
                                            
-        </Typography>
+                                                         </Typography>
 
 
 
@@ -222,7 +230,36 @@ return(
 
                         </Paper>
                     </CardContent>
+                    <CardActionArea  onClick={handleExpandClick3} disableSpacing style={{margin:'auto', textAlign:'center'}}>
+                                           <div style={{margin:'auto'}}>
+                                                 <IconButton aria-label="add to favorites">
+                                                  <PhotoLibraryIcon /> 
+                                                  </IconButton>
+                                                  Images and Resources
+                                          <IconButton
+                                             className={clsx(classes.expand, {
+                                                [classes.expandOpen]: expanded3,
+                                            })}
+                                           
+                                            aria-expanded={expanded3}
+                                            aria-label="show more"
+                                                                    >
+                                <ExpandMoreIcon />
+                                </IconButton>
+                                </div>
+                            </CardActionArea>
 
+
+                            
+                            <Collapse in={expanded3} timeout="auto" unmountOnExit>
+                                <CardContent>
+                                <Typography paragraph>Method:</Typography>
+                                <Typography paragraph>
+                                   images
+                                </Typography>
+                              
+                                </CardContent>
+                            </Collapse>
 
                 </Card>
                 </Paper>

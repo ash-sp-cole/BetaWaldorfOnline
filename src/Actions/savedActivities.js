@@ -76,15 +76,16 @@ export const apiBool = (state) => {
 
 
 
-export const callApi = (apiData) => async dispatch =>{
+export const callApi = () => async dispatch =>{
   const response = await axios.get("http://localhost:3001/mainlesson")
   const data = await response.data;
-    const res = data.json()
-console.log(data.grade , "trsyyt")
-//    dispatch({
-//         type: API_CALL,
-//         payload:data
-//    })
-
-
+   
+console.log(data[0] , "action api resonse")
+  
+dispatch({
+        type: API_CALL,
+        payload:data
+   })
+  
+  
 }

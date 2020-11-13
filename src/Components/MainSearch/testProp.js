@@ -7,7 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import {Paper,Typography,Grid,Divider} from "@material-ui/core";
-import headerLogo from "../../Assets/welcomeLogoBlue.JPG";
+import headerLogo from "../../Assets/cardPropBanner.JPG";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const PropCard = (props) =>{
+const TestProp = (props) =>{
     
     const classes = useStyles();
 
@@ -100,28 +100,25 @@ return(
                                 <Grid container alignItems="center">
                                     <CardContent>
                                     <Typography variant="h3" gutterBottom>
-                                        Botany
+                                        {props.subject}
                                     </Typography>
                                     <Typography variant="h5" gutterBottom>
-                                       Fifth Grade
+                                       {props.grade} Grade
                                            </Typography>
+                                           <Typography variant="h5" gutterBottom>
+                                       {props.lessonType}
+                                       </Typography>
+                                       <CardMedia
+                            className={classes.media}
+                            image={props.imageUrl}
+                            title="The Middle Space"
+                        />
                                         <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                        Finally, the students explore the life of the ancient Greeks, focusing on Grecian  <b> art,
-                                         culture, language,</b> and  <b> movement </b>. 
+                                        {props.introduction}
                                          
                                                    </Typography>
                                                    
-                                        <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                                     
-                                        The students learn about many ancient Greek contributions
-                                          to the present day, including ideas about beauty, truth, courage, and the social order. 
-                                                            </Typography>
-                                                   
-                                                   <Typography className={classes.title} color="textSecondary" gutterBottom>
-                                                   The  <b> Pentathlon </b> helps the children experience firsthand the wonderful  <b>harmony of body 
-                                        and soul  </b> that led the Greeks to feel themselves at home in the physical world.
-                                                <br></br>
-                                                </Typography>
+                                     
                                                    
                                                   
                                         <Typography variant="h7"  className={classes.title}  style={{textAlign:'right'}} component="h2">
@@ -153,26 +150,21 @@ return(
                             </CardActionArea>
                             <Collapse in={expanded1} timeout="auto" unmountOnExit>
                                 <CardContent>
-                                <Typography paragraph>Method:</Typography>
+                                <Typography paragraph>Verses</Typography>
                                 <Typography paragraph>
-                                    Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-                                    minutes.
+                                  {props.verses}
                                 </Typography>
+                                <Typography paragraph style={{marginBottom:"5%"}}>{props.verseAuthor}</Typography>
+                                <Typography paragraph>Songs</Typography>
                                 <Typography paragraph>
-                                and set aside, leaving chicken
-                                    and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-                                    pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-                                    saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+                                  {props.songs}
                                 </Typography>
+                                <Typography paragraph style={{marginBottom:"5%"}}>{props.songAuthor}</Typography>
+                                <Typography paragraph >Activities</Typography>
                                 <Typography paragraph>
-                                    Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-                                ucking them down into the rice, and cook
-                                    again without stirring, until mussels have opened and rice is just tender, 5 to 7
-                                    minutes more. (Discard any mussels that don’t open.)
+                                  {props.openingExercises}
                                 </Typography>
-                                <Typography>
-                                    Set aside off of the heat to let rest for 10 minutes, and then serve.
-                                </Typography>
+                                
                                 </CardContent>
                             </Collapse>
                             <CardActionArea  onClick={handleExpandClick2} disableSpacing style={{margin:'auto', textAlign:'center'}}>
@@ -198,26 +190,8 @@ return(
                             </CardActionArea>
                             <Collapse in={expanded2} timeout="auto" unmountOnExit>
                                 <CardContent>
-                                <Typography paragraph>Method:</Typography>
-                                <Typography paragraph>
-                                    Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
-                                    minutes.
-                                </Typography>
-                                <Typography paragraph>
-                                and set aside, leaving chicken
-                                    and chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes, onion, salt and
-                                    pepper, and cook, stirring often until thickened and fragrant, about 10 minutes. Add
-                                    saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-                                </Typography>
-                                <Typography paragraph>
-                                    Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-                                ucking them down into the rice, and cook
-                                    again without stirring, until mussels have opened and rice is just tender, 5 to 7
-                                    minutes more. (Discard any mussels that don’t open.)
-                                </Typography>
-                                <Typography>
-                                    Set aside off of the heat to let rest for 10 minutes, and then serve.
-                                </Typography>
+                                <Typography paragraph>{props.lessonPlans}</Typography>
+                              
                                 </CardContent>
                             </Collapse>
                                                             </CardContent>
@@ -270,4 +244,4 @@ return(
 }
 
 
-export default PropCard;
+export default TestProp;
