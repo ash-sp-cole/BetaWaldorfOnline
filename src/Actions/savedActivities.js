@@ -80,12 +80,13 @@ export const callApi = () => async dispatch =>{
   const response = await axios.get("http://localhost:3001/mainlesson")
   const data = await response.data;
    
-console.log(data[0] , "action api resonse")
+console.log(data , "action api resonse")
   
 dispatch({
         type: API_CALL,
         payload:data
    })
+  
   
   
 }

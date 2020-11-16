@@ -172,9 +172,11 @@ const Sidebar =({dispatchApiBool, dispatchCallApi},props) => {
       
       
       <Button
-         onClick={() => {
-          dispatchCallApi()
-      }}
+      
+     
+    onClick={() => {
+      dispatchCallApi()
+  }}
         style={{marginTop:'10%', marginBottom:'15%'}}
         variant="contained"
         color="primary"
@@ -185,7 +187,7 @@ const Sidebar =({dispatchApiBool, dispatchCallApi},props) => {
       </Button>
       <Button
          onClick={() => {
-          dispatchApiBool(false)
+          dispatchApiBool(true)
       }}
         style={{marginTop:'10%', marginBottom:'15%'}}
         variant="contained"

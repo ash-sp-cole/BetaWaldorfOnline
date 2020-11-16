@@ -18,6 +18,7 @@ class MainSearch extends Component {
 
     render() {
 
+        console.log(this.props.apiResponse, "working")
         const handleApiCall = () => {
             if (this.props.savedUsedChoice === "") {
                 alert("please select a search option")
@@ -40,7 +41,7 @@ class MainSearch extends Component {
         }
 
 
-            console.log(this.props.apiResponse + "response sent back from store redux")
+          
 
         if (this.props.apiBoolRedux === false) {
             return (
@@ -57,6 +58,7 @@ class MainSearch extends Component {
         }
 
         else {
+         
             return (
                 <Grid
                 container
@@ -68,7 +70,7 @@ class MainSearch extends Component {
                    <Grid item xs={12}>
                             <SideBar />
                         </Grid>
-                {this.state.responseArr.map((data, index) => {
+                {this.props.apiResponse.map((data, index) => {
                     return (
 
                         <Grid item xs={12} sm={6} md={6} lg={4} key={index} style={{ margin: 'auto' }}>
@@ -112,7 +114,7 @@ const mapStatetoProps = (state) => {
   
       
       apiBoolRedux: state.store.apiBool,
-      apiResponse: state.store.apiMainLessonQuery
+      apiResponse: Object.values(state.store.apiMainLessonQuery)
     }
   
   
