@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 
 
 const storeSchema = new mongoose.Schema({
+    tags:[
+        String
+    ],
 
     grade: {
 
@@ -78,12 +81,20 @@ const storeSchema = new mongoose.Schema({
         required: false
 
     },
-    lessonPlans:
-    {
+    lessonPlans:{
+            lessonName: {
 
-        type: String,
-        required: true
+                type: String,
+                required: false
+            },
+            lessonGuide: {
+
+                type: String,
+                required: false
+            }
+
     },
+   
     introduction:{
         type:String,
         required: false

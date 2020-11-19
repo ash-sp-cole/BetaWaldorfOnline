@@ -12,11 +12,15 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Button from "@material-ui/core/Button";
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
+import { connect } from 'react-redux';
+import {addToSearchSaved}  from "../../Actions/savedActivities";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         height: 0,
+     
         paddingTop: '56.25%', // 16:9
     },
     bullet: {
@@ -56,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const TestProp = (props) =>{
+const TestProp = (props,{dispatchAddToSearchSaved}) =>{
     
     const classes = useStyles();
 
@@ -77,9 +82,16 @@ const handleExpandClick1 = () => {
     setExpanded3(!expanded3);
   };
 
+const handleSetFavorite = (event) =>{
+    let data= event
+       
+       props.addToSaved(props.id)
+    // alert("This card has been added to your favourites")
 
 
+}
 
+console.log(props.savedCards, "response from store of saved cards")
 return(
     <div>
 <div className={classes.root}>
@@ -102,12 +114,25 @@ return(
                                     <Typography variant="h3" gutterBottom>
                                         {props.subject}
                                     </Typography>
+                                   
+                                
                                     <Typography variant="h5" gutterBottom>
                                        {props.grade} Grade
                                            </Typography>
                                            <Typography variant="h5" gutterBottom>
                                        {props.lessonType}
                                        </Typography>
+                                       <CardActionArea   onClick={() => {
+                                        dispatchAddToSearchSaved("test")
+                                    }}>
+                                       <IconButton aria-label="add" style={{ marginBottom:'3%'}}>
+                                    <FavoriteIcon />
+                                    <Typography  style={{width:'100%' ,marginLeft:'1%', fontSize:'0.9em'}} variant="subtitle3">
+                                       Favorite
+                                       </Typography>
+                                    </IconButton> 
+                                       </CardActionArea>
+                                 
                                        <CardMedia
                             className={classes.media}
                             image={props.imageUrl}
@@ -159,7 +184,7 @@ return(
                                 <Typography paragraph>
                                   {props.songs}
                                 </Typography>
-                                <Typography paragraph style={{marginBottom:"5%"}}>{props.songAuthor}</Typography>
+                                <Typography paragraph style={{marginBottom:"5%"}}><a style={{textDecoration:"none"}} target="_blank" rel="noreferrer" href={props.songAuthor} ><Button variant="contained" color="secondary">View sheet music </Button></a></Typography>
                                 <Typography paragraph >Activities</Typography>
                                 <Typography paragraph>
                                   {props.openingExercises}
@@ -191,7 +216,7 @@ return(
                             <Collapse in={expanded2} timeout="auto" unmountOnExit>
                                 <CardContent>
                                 <Typography paragraph>{props.lessonPlans}</Typography>
-                              
+                                <Typography paragraph>{props.lessonGuide}</Typography>
                                 </CardContent>
                             </Collapse>
                                                             </CardContent>
@@ -243,5 +268,24 @@ return(
     )
 }
 
+const mapStatetoProps = (state) => {
 
-export default TestProp;
+    return {
+  
+      
+      savedCards : Object.values(state.store.globalSaved),
+      apiResponse: Object.values(state.store.apiMainLessonQuery)
+    }
+  
+  
+  }
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+  
+   
+      dispatchAddToSearchSaved: (e) => dispatch(addToSearchSaved(e)),
+    }
+  }
+
+export default connect(mapStatetoProps, mapDispatchToProps )(TestProp); 

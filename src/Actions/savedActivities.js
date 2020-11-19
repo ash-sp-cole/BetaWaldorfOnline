@@ -17,13 +17,14 @@ export const getSaved = (data) => {
 
 }
 
-export const addToSaved = (itemQuantity) => {
+export const addToSaved = (data) => {
 
+  let id = data
 
     return {
-        type: ADD_TO_SAVED,
-        payload: itemQuantity
-
+        type:"ADD_TO_SAVED",
+        payload: id
+       
     }
 
 }
@@ -76,11 +77,11 @@ export const apiBool = (state) => {
 
 
 
-export const callApi = () => async dispatch =>{
+export const callApi = (test) => async dispatch =>{
+    console.log(test, "action api info")
   const response = await axios.get("http://localhost:3001/mainlesson")
   const data = await response.data;
-   
-console.log(data , "action api resonse")
+
   
 dispatch({
         type: API_CALL,

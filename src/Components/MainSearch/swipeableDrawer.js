@@ -28,7 +28,7 @@ import date from 'date-and-time';
 import saved from '../../Assets/cardPropBanner.JPG'
 import {apiBool, callApi} from "../../Actions/savedActivities";
 import { connect } from 'react-redux';
-
+import AutoSearch from "./autoSearch";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -106,7 +106,7 @@ const Sidebar =({dispatchApiBool, dispatchCallApi},props) => {
                             Auto Search
           </Typography>
                 <Tooltip title="Try out our Auto Search feature" arrow>
-                            <TextField id="outlined-basic" label="AutoSearch" variant="outlined" style={{marginTop:'2%', marginBottom:'8%'}}/>
+                         <AutoSearch/>
                        </Tooltip>
                        <Typography gutterBottom variant="h6" component="h2" style={{marginTop:'3%'}}  >
                             or
@@ -187,7 +187,7 @@ const Sidebar =({dispatchApiBool, dispatchCallApi},props) => {
       </Button>
       <Button
          onClick={() => {
-          dispatchApiBool(true)
+          dispatchApiBool(false)
       }}
         style={{marginTop:'10%', marginBottom:'15%'}}
         variant="contained"

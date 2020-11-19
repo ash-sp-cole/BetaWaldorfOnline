@@ -79,6 +79,7 @@ class MainSearch extends Component {
                                     style={{
                                         margin: 'auto'
                                     }}
+                                    id={data._id}
                                     elevation={16}
                                     subject={data.subject}
                                     introduction={data.introduction}
@@ -90,7 +91,8 @@ class MainSearch extends Component {
                                     songAuthor={data.songAuthor}
                                     verses={data.verses}
                                     verseAuthor={data.verseAuthor}
-                                    lessonPlans={data.lessonPlans}
+                                    lessonPlans={data.lessonPlans.lessonName}
+                                    lessonGuide = {data.lessonPlans.lessonGuide}
                                     poems={data.poems}
                                     stories={data.stories}
                                 />
