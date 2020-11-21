@@ -78,16 +78,62 @@ export const apiBool = (state) => {
 
 
 export const callApi = (test) => async dispatch =>{
-    console.log(test, "action api info")
-  const response = await axios.get("http://localhost:3001/mainlesson")
-  const data = await response.data;
+    
 
+
+    let searchMerge =[];
+
+    for (let i = 0; i <test.length; i++){
+      
+        searchMerge.push(test[i].title)
+    }
+    searchMerge.toString()
+
+    switch(searchMerge.length) {
+
+        case 1:{
+
+        const response = await axios.get("http://localhost:3001/mainlesson/mainsearch/" + searchMerge[0])
+        const data = await response.data;
+      
+        
+      dispatch({
+              type: API_CALL,
+              payload:data
+         })
+        
+        
+    }
+
+    case 2:{
+    
   
-dispatch({
-        type: API_CALL,
-        payload:data
-   })
+        const response = await axios.get("http://localhost:3001/mainlesson/mainsearch/" + searchMerge[0] + "/" +searchMerge[1])
+        const data = await response.data;
+      
+        
+      dispatch({
+              type: API_CALL,
+              payload:data
+         })
+        
+        
+    }
+    case 3:{
+    
   
-  
-  
+        const response = await axios.get("http://localhost:3001/mainlesson/mainsearch/" + searchMerge[0] + "/" +searchMerge[1] + "/" + searchMerge[2])
+        const data = await response.data;
+      
+        
+      dispatch({
+              type: API_CALL,
+              payload:data
+         })
+        
+        
+    }
+
+
+}
 }

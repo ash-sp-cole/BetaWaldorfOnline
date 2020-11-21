@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid } from "@material-ui/core";
+import { Grid , Paper} from "@material-ui/core";
 import FullWidthGrid from './grid';
 import PropCard from "./propCard";
 import PropCardBlue from './propCardBlue';
@@ -9,6 +9,7 @@ import {apiBool} from "../../Actions/savedActivities";
 import { connect } from 'react-redux';
 import TestProp from "./testProp";
 import Axios from "axios";
+import SearchHeader from './searchHeader';
 
 class MainSearch extends Component {
     state = {
@@ -47,6 +48,10 @@ class MainSearch extends Component {
             return (
                 <div >
                     <Grid container spacing={2}>
+                    <Grid item xs={12}>
+         <SearchHeader/>
+        </Grid>
+
                         <Grid item xs={12}>
                             <SideBar />
                         </Grid>
@@ -91,8 +96,8 @@ class MainSearch extends Component {
                                     songAuthor={data.songAuthor}
                                     verses={data.verses}
                                     verseAuthor={data.verseAuthor}
-                                    lessonPlans={data.lessonPlans.lessonName}
-                                    lessonGuide = {data.lessonPlans.lessonGuide}
+                                    lessonPlans={data.lessonName}
+                                    lessonGuide = {data.lessonGuide}
                                     poems={data.poems}
                                     stories={data.stories}
                                 />

@@ -25,6 +25,42 @@ router.get ("/", async (req, res) =>{
 })
 
 
+router.get("/mainsearch/:tag/:tag2?", async (req,res)=>{
+
+    if(!req.params.tag2) {
+    try{
+        console.log("route hit for find by tag")
+        const data = await mainLesson.find({tags:(req.params.tag)})
+  
+        res.json(data)
+    }
+
+    catch (err) {
+
+        res.status(500).json({
+            message:err.message
+        })
+
+    }
+    }
+    else {
+    try{
+        console.log("route hit for find by tag")
+
+        const data = await mainLesson.find({$or:[{tags:(req.params.tag)}, {tags:(req.params.tag2)}]})
+        res.json(data)
+    }
+    catch (err) {
+
+        res.status(500).json({
+            message:err.message
+        })
+
+    }
+    }
+})
+
+
 
 router.post('/:id', async (req, res)=>{
  
@@ -42,10 +78,9 @@ router.post('/:id', async (req, res)=>{
         poems: req.body.poems,
         verses: req.body.verses,
         verseAuthor:req.body.verseAuthor,
-        lessonName:req.body.lessonPlans.lessonName,
-        lessonGuide:req.body.lessonPlans.lessonGuide,
+        lessonName:req.body.lessonName,
+        lessonGuide:req.body.lessonGuide,
         tags:req.body.tags
-        
     })
     try {
         const newlesson = await newMainLesson.save()
