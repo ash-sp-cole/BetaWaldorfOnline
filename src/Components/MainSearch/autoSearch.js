@@ -9,6 +9,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
  const AutoSearch = ({dispatchCallApi})=> {
     const [search, setSearch] = useState([]);
     const classes = useStyles();
-    console.log(search, "array satae")
+    
 
   return (
     
@@ -54,7 +55,8 @@ const useStyles = makeStyles((theme) => ({
     onClick={() => {
       dispatchCallApi(search)
   }}>
-      <IconButton aria-label="delete">
+      <IconButton aria-label="delete" variant="contained" color="primary">
+        <Typography variant="h6" style={{marginRight:'10%'}}>Search</Typography>
   <ArrowForwardIcon/>
 </IconButton>
 </CardActionArea>

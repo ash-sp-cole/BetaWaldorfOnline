@@ -25,9 +25,9 @@ router.get ("/", async (req, res) =>{
 })
 
 
-router.get("/mainsearch/:tag/:tag2?", async (req,res)=>{
+router.get("/mainsearch/:tag/:tag2?/:tag3?", async (req,res)=>{
 
-    if(!req.params.tag2) {
+    if(!req.params.tag2 && !req.params.tag3) {
     try{
         console.log("route hit for find by tag")
         const data = await mainLesson.find({tags:(req.params.tag)})
@@ -43,7 +43,7 @@ router.get("/mainsearch/:tag/:tag2?", async (req,res)=>{
 
     }
     }
-    else {
+    else  if(req.params.tag2===true && !req.params.tag3) {
     try{
         console.log("route hit for find by tag")
 
@@ -58,6 +58,21 @@ router.get("/mainsearch/:tag/:tag2?", async (req,res)=>{
 
     }
     }
+    else   {
+        try{
+            console.log("route hit for find by tag")
+    
+            const data = await mainLesson.find({$or:[{tags:(req.params.tag)}, {tags:(req.params.tag2)}, {tags:(req.params.tag3)}]})
+            res.json(data)
+        }
+        catch (err) {
+    
+            res.status(500).json({
+                message:err.message
+            })
+    
+        }
+        }
 })
 
 

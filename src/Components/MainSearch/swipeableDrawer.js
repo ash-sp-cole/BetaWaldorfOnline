@@ -90,7 +90,7 @@ const Sidebar = ({ dispatchApiBool, dispatchCallApi }, props) => {
           <CardMedia
             className={classes.media}
             image={searchLogo}
-            title="Contemplative Reptile"
+            title="Hello :) "
           />
           <CardContent style={{
             marginTop: '2%'
@@ -108,10 +108,10 @@ const Sidebar = ({ dispatchApiBool, dispatchCallApi }, props) => {
         <Tooltip title="Try out our Auto Search feature" arrow>
           <AutoSearch />
         </Tooltip>
-        <Typography gutterBottom variant="h6" component="h2" style={{ marginTop: '3%' }}  >
+        {/* <Typography gutterBottom variant="h6" component="h2" style={{ marginTop: '3%' }}  >
           or
-          </Typography>
-        <FormControl className={classes.formControl} style={{ marginTop: '2%' }} >
+          </Typography> */}
+        {/* <FormControl className={classes.formControl} style={{ marginTop: '2%' }} >
           <InputLabel id="demo-simple-select-helper-label">Grade</InputLabel>
           <Select
             labelId="demo-simple-select-helper-label"
@@ -197,7 +197,7 @@ const Sidebar = ({ dispatchApiBool, dispatchCallApi }, props) => {
           >
             Clear
       </Button>
-        </FormControl>
+        </FormControl> */}
 
 
         <Paper elevation={5}>
@@ -205,7 +205,7 @@ const Sidebar = ({ dispatchApiBool, dispatchCallApi }, props) => {
             <CardMedia
               className={classes.media}
               image={saved}
-              title="Contemplative Reptile"
+              title="Search the Middle Space"
             />
 
             <ListItem>
@@ -241,7 +241,7 @@ const Sidebar = ({ dispatchApiBool, dispatchCallApi }, props) => {
           <CardActionArea onClick={toggleDrawer(anchor, true)}>
             <Button
               variant="contained"
-              color="secondary"
+              color="primary"
               className={classes.button}
               startIcon={<ImageSearchIcon/>}
             >

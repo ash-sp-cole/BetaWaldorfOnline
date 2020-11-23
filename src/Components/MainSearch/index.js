@@ -52,9 +52,7 @@ class MainSearch extends Component {
          <SearchHeader/>
         </Grid>
 
-                        <Grid item xs={12}>
-                            <SideBar />
-                        </Grid>
+                        
                     </Grid>
 
 
