@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import logo from "../../Assets/welcomeLogoBlue.JPG";
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import {Link} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +54,8 @@ export default function SearchHeader() {
         <Grid container spacing={1} style={{ margin:'auto', marginTop:'5%', maxWidth:'500px'}}>
         <Grid item xs={12} sm={6} style={{margin:'auto'}}>
         <Button
+        component={Link}
+        to="/favorites"
         variant="contained"
         color="secondary"
         className={classes.button}
