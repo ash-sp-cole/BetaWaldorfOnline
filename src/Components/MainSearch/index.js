@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid , Paper} from "@material-ui/core";
+import { Grid , Paper, IconButton} from "@material-ui/core";
 import FullWidthGrid from './grid';
 import PropCard from "./propCard";
 import PropCardBlue from './propCardBlue';
@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import TestProp from "./testProp";
 import Axios from "axios";
 import SearchHeader from './searchHeader';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 class MainSearch extends Component {
     state = {
@@ -71,7 +72,14 @@ class MainSearch extends Component {
                 alignItems="flex-start"
             >
                    <Grid item xs={12}>
-                            <SideBar />
+                            <SideBar /> 
+                            <IconButton aria-label="delete"  
+                                onClick={()=>{
+                                  this.props.dispatchApiBool(false)
+                                }}
+                            >
+        <DeleteIcon />
+      </IconButton>
                         </Grid>
                 {this.props.apiResponse.map((data, index) => {
                     return (
@@ -113,6 +121,9 @@ class MainSearch extends Component {
     }
 }
 
+
+
+
 const mapStatetoProps = (state) => {
 
     return {
@@ -124,7 +135,7 @@ const mapStatetoProps = (state) => {
   
   
   }
-  
+   
   const mapDispatchToProps = (dispatch) => {
     return {
   
@@ -134,3 +145,5 @@ const mapStatetoProps = (state) => {
 
 
 export default connect(mapStatetoProps, mapDispatchToProps)(MainSearch); 
+
+

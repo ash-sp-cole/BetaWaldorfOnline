@@ -64,6 +64,8 @@ const useStyles = makeStyles((theme) => ({
   );
 }
 
+
+
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const autoList = [
   { title: 'Grade One'},
@@ -95,6 +97,12 @@ const autoList = [
   { title: 'Summer'},
   { title: 'Fall'},
   { title: 'Winter'},
+  { title: 'History'},
+  { title: 'Science'},
+  { title: 'Art'},
+  { title: 'Languages'},
+  { title: 'Botanyy'},
+  
 ];
 const mapStatetoProps = (state) => {
 

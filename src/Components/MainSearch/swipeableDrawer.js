@@ -30,6 +30,8 @@ import { apiBool, callApi } from "../../Actions/savedActivities";
 import { connect } from 'react-redux';
 import AutoSearch from "./autoSearch";
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
+import {Link}  from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -201,7 +203,10 @@ const Sidebar = ({ dispatchApiBool, dispatchCallApi }, props) => {
 
 
         <Paper elevation={5}>
-          <CardActionArea>
+          <CardActionArea 
+            component={Link}
+            to="/favorites"
+          >
             <CardMedia
               className={classes.media}
               image={saved}
@@ -220,13 +225,14 @@ const Sidebar = ({ dispatchApiBool, dispatchCallApi }, props) => {
 
 
           <Button
-            style={{ marginTop: '10%', marginBottom: '15%' }}
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            startIcon={<SearchIcon />}
-          >
-            Logout
+        component={Link}
+        to="/favorites"
+        variant="contained"
+        color="secondary"
+        className={classes.button}
+        endIcon={<FavoriteIcon></FavoriteIcon>}
+      >
+       Favorites
       </Button>
         </Paper>
       </Card>
