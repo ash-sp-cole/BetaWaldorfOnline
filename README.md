@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# WALDORF ONLINE - Beta ( All rights reserved and intended for private use only )
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is initial Beta testing phase and is subject to constant change
 
-## Available Scripts
+## An online resource for teachers, educators and parents. Created to aide and empower those who work in any educational setting
 
-In the project directory, you can run:
+In the project directory, you can run ( for private use only ):
 
 ### `npm start`
 
